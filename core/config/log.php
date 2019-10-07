@@ -5,7 +5,7 @@ return  [
     'file_system' => [
         'adapter' => 'fileSystem', // 适配器的文件名 eg：fileSystem 指向 /lib/adapter/log/fileSystem.php
         'options' => [
-            'cache_dir' => ROOT . '/data/cache/filesystem',
+            'dir' => ROOT . '/data/log',
 //            'key_pattern' => '/.*/Di',
 //            'dir_level' => 3,
 //            'dir_permission' => 0777,

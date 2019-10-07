@@ -18,8 +18,8 @@ Class log
         if(!self::$logger){
             $logConfig = \core\lib\config::getAll('log');
             $logType = $logConfig['default'];
-            $logAdapter = CORE.'\lib\adapter\log\\'.$logConfig[$logType]['adapter'];
-            $adapterFilePath = CORE.'/lib/adapter/log/'.$logConfig[$logType]['adapter'].'php';
+            $logAdapter = '\core\lib\adapter\log\\'.$logConfig[$logType]['adapter'];
+            $adapterFilePath = CORE.'/lib/adapter/log/'.$logConfig[$logType]['adapter'].'.php';
             switch($logType){
                 /*case 'file_system':
                     include $adapterFilePath;

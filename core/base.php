@@ -24,8 +24,11 @@ Class base
         p($result3);
         exit;
         */
+	    /*
         // 日志测试
-        \core\lib\log::log('test!');
+        \core\lib\log::log('someTestString');
+        \core\lib\log::log(['A','B','C']);
+	    */
 
         //路由
         $route = \core\lib\route::getInstance();

@@ -5,7 +5,6 @@
  * 2.加载函数库
  * 3.启动框架
  */
-die('here');
 define('ROOT',realpath('../'));
 define('RES',ROOT.'/public/res');
 define('CORE',ROOT.'/core');
