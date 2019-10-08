@@ -11,7 +11,22 @@ define('CORE',ROOT.'/core');
 define('MODULE',ROOT.'/module');
 define('DEBUG', true);
 
+include ROOT.'/vendor/autoload.php';
+
 if(DEBUG) {
+    //使用filp 美化错误提示
+    /**
+    $whoops = new \Whoops\Run;
+    $option = new \Whoops\Handler\PrettyPageHandler();
+    $title = '虫子来了';
+    $option->setPageTitle($title);
+    $whoops->prependHandler($option);
+    $whoops->register();
+    **/
+    $whoops = new \Whoops\Run;
+    $whoops->prependHandler(new \Whoops\Handler\PrettyPageHandler());
+    $whoops->register();
+    // 设置PHP错误提示On
 	ini_set('display_error', 'On');
 }else{
 	ini_set('display_error', 'Off');

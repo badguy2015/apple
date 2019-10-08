@@ -1,0 +1,14 @@
+{
+  "name" : "badgay2015/apple-framework",
+  "description" : "",
+  "type" : "Framework",
+  "keywords" : [
+    "php_framework"
+  ],
+  "require" : {
+    "php":">=7.2.0",
+    "filp/whoops":"~2.5",
+    "symfony/var-dumper":"~4.3",
+    "catfan/medoo":"*"
+  }
+}

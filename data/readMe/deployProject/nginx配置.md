@@ -1,6 +1,8 @@
 server {
-    listen       80;     
+    listen       80;
+    #@Must be modified
     server_name  apple.local;
+    #@Must be modified
     root /mnt/www/apple/public;
     #重写静态文件
     rewrite ".*\.(js|gif|png|jpg|jpeg|css|php|htm|swf|htc|xml|ico|cur|ttf|mp4)$" $uri last;
