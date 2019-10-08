@@ -23,6 +23,7 @@ if(DEBUG) {
     $whoops->prependHandler($option);
     $whoops->register();
     **/
+    // @todo BUG！whoops开启PrettyPageHandler后，会把原来打印的界面给覆盖，导致无法查看异常输出的信息
     $whoops = new \Whoops\Run;
     $whoops->prependHandler(new \Whoops\Handler\PrettyPageHandler());
     $whoops->register();

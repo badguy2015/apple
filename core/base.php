@@ -16,6 +16,13 @@ Class base
 	    p($result->fetchAll());
 	    exit;
 	    */
+        /*
+        // Medoo 演示
+        $model = new \core\lib\model();
+        $result = $model->select('user','*');
+        p($result);
+        die('ok');
+        */
 	    /*
         // 配置TEST
         $result1 = \core\lib\config::getAll('route');
@@ -42,8 +49,6 @@ Class base
          */
         $controllerFile = ROOT.'/module/'.$module.'/Controller/'.$controller.'Controller.php';
         $controllerClass = '\\'.$module.'\Controller\\'.$controller.'Controller';
-//        p($controllerFile);
-//        p($controllerClass);die;
         // 加载控制器,方法
         if(is_file($controllerFile)){
             include $controllerFile;
@@ -64,16 +69,24 @@ Class base
      */
 	static public function load($class)
 	{
-        // $class = core\lib\route
-        // include ROOT/core/lib/route;
-        // new \core\route();
-        // $class = \core\rote
+        
         if(isset(self::$classMap[$class])){
 //            p(self::$classMap);
             return;
         }else{
             $classPath = str_replace('\\','/',$class);
-            $path = ROOT.'/'.$classPath.'.php';
+            if(strpos($classPath,'Model')!==FALSE){
+                    // include ROOT/module/Model/UserModel.php
+                    // $class = Model\UserModel
+                    // include ROOT/module/Model/UserModel.php;
+                    // new \Model\UserModel;
+                $path = ROOT.'/module/'.$classPath.'.php';
+            }else{
+            // $class = core\lib\route
+            // include ROOT/core/lib/route;
+            // new \core\lib\route();
+                $path = ROOT.'/'.$classPath.'.php';
+            }
             if(is_file($path)){
                 include $path;
                 self::$classMap[$class] = true;

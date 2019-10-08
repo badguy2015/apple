@@ -26,23 +26,23 @@ Class route
             if(isset($uriArr[1])){
                 $this->controller = ucfirst($uriArr[1]);
                 if(isset($uriArr[2])){
-                    $this->action = ucfirst($uriArr[2]);
+                    $this->action = lcfirst(($uriArr[2]));
                     for($i=3;$i<count($uriArr);$i=$i+2) {
                         if(isset($uriArr[$i+1])) {
                             $_GET[$uriArr[$i]] = $uriArr[$i+1];
                         }
                     }
                 }else{
-                    $this->action = $defaultRoute['action'];
+                    $this->action = lcfirst($defaultRoute['action']);
                 }
             }else{
-                $this->controller = $defaultRoute['controller'];
-                $this->action = $defaultRoute['action'];
+                $this->controller = ucfirst($defaultRoute['controller']);
+                $this->action = lcfirst($defaultRoute['action']);
             }
         }else{
-            $this->module = $defaultRoute['module'];
-            $this->controller = $defaultRoute['controller'];
-            $this->action = $defaultRoute['action'];
+            $this->module = ucfirst(defaultRoute['module']);
+            $this->controller = ucfirst(defaultRoute['controller']);
+            $this->action = lcfirst($defaultRoute['action']);
         }
     }
     private function __clone(){}
