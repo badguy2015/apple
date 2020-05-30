@@ -23,7 +23,7 @@ Class config
         $path = ROOT.'/core/config/'.$file.'.php';
 //        p($path);
         if(isset(self::$conf[$file])){
-            return self::$conf[$file][$name];
+            return $name='ALL' ? self::$conf[$file] : self::$conf[$file][$name];
         }else{
             if(is_file($path)){
                 $config = include $path;
